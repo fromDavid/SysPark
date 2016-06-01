@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31-Maio-2016 às 23:10
+-- Generation Time: 01-Jun-2016 às 13:15
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -56,6 +56,14 @@ CREATE TABLE IF NOT EXISTS `parks` (
   KEY `parks_user_id_foreign` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `parks`
+--
+
+INSERT INTO `parks` (`local`, `piso`, `carro`, `data`, `criado_a`, `user_id`) VALUES
+('dsa', 'das', 'dsa', '2016-06-16', '2016-06-01 11:03:08', 1),
+('Perdido', '2', 'Aquele', '2016-06-23', '2016-06-01 11:13:34', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +94,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Manel', 'manel@email.com', '123', NULL, NULL, NULL),
+(2, 'Alberto', 'alberto@gmail.com', '1234', NULL, NULL, NULL);
 
 --
 -- Constraints for dumped tables

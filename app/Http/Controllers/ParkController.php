@@ -13,9 +13,9 @@ use App\Park;
 
 class ParkController extends Controller
 {
-	 public function __construct() {
+	/*public function __construct() {
         $this->middleware('auth');
-    }
+    }*/
     //construtor
 	public function index() {
 		try {
@@ -45,12 +45,12 @@ class ParkController extends Controller
 		}
 	}
 	
-	public function show($id) {
+	public function show($user_id) {
 		try {
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$park = Park::find($id);
+			$park = Park::all($user_id);
 			$response->push([
 				'user_id' => $park->user_id,
 				'local' => $park->local,
