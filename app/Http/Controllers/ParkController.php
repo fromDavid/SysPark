@@ -13,6 +13,9 @@ use App\Park;
 
 class ParkController extends Controller
 {
+	 public function __construct() {
+        $this->middleware('auth');
+    }
     //construtor
 	public function index() {
 		try {
