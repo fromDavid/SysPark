@@ -11,4 +11,8 @@ class Park extends Model
 	protected $fillable = ['local', 'piso', 'carro', 'data'];
 	
 	public $timestamps = false;
+
+	public function user(){
+		return $this->belongsTo('App\User');
+	}
 }

@@ -10,6 +10,7 @@ use App\Http\Requests;
 
 //models
 use App\Park;
+use App\User;
 
 class ParkController extends Controller
 {
@@ -45,19 +46,24 @@ class ParkController extends Controller
 		}
 	}
 	
+
 	public function show($user_id) {
 		try {
 			$statusCode = 200;
 			$response = collect([]);
-			
-			$park = Park::all($user_id);
-			$response->push([
-				'user_id' => $park->user_id,
-				'local' => $park->local,
-				'piso' => $park->piso,
-				'carro' => $park->carro,
-				'data' => $park->data
-			]);
+
+			$parks = Park::find($user_id)->user()->where('user_id');	
+			foreach ($parks as $park) {
+				$response->push([
+					'id' => $park->id,
+					'user_id' => $park->user_id,
+					'local' => $park->local,
+					'piso' => $park->piso,
+					'carro' => $park->carro,
+					'data' => $park->data
+				]);
+			}
+
 		} catch (Exception $e) {
 			$response->push(['error' => 'Location not found.']);
 			$statusCode = 404; //Not Found

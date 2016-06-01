@@ -13,6 +13,7 @@ class CreateParksTable extends Migration
     public function up()
     {
         Schema::create('parks', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('local');
             $table->string('piso');
             $table->string('carro');
