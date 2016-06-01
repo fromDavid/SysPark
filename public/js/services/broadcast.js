@@ -1,6 +1,6 @@
 app.factory("broadcast", ['$http', function($http) {
-    return { getPerson: function(id) {
-               return $http({method: 'GET', url: 'http://localhost/friendlistapp/public/api/v1/persons/'+id}).then(
+    return { getPark: function(id) {
+               return $http({method: 'GET', url: 'http://localhost/syspark/public/api/v1/parks/'+id}).then(
                function sucessCallback(response) {
                    return response.data;
                }, function errorCallback(response) {
@@ -8,7 +8,7 @@ app.factory("broadcast", ['$http', function($http) {
                });
            },
            getPersons: function() {
-               return $http({method: 'GET', url: 'http://localhost/friendlistapp/public/api/v1/persons'}).then(
+               return $http({method: 'GET', url: 'http://localhost/syspark/public/api/v1/parks'}).then(
                function sucessCallback(response) {
                    return response.data;
                }, function errorCallback(response) {
