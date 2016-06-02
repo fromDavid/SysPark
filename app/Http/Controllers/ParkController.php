@@ -52,7 +52,9 @@ class ParkController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 
-			$parks = Park::find($user_id)->user()->where('user_id');	
+			$parks = Park::all();
+
+			$parks = Park::where('user_id', $user_id)->get();
 			foreach ($parks as $park) {
 				$response->push([
 					'id' => $park->id,
@@ -68,7 +70,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Location not found.']);
 			$statusCode = 404; //Not Found
 		} finally {
-			return response()->json($response, $statusCode);
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -84,7 +86,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error creating Location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode);
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -101,7 +103,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error updating Location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode);
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -118,7 +120,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error deleting location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode);
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 }
