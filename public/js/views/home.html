@@ -1,12 +1,20 @@
-<div id="result" ng-repeat="park in parks">
+<div id="result" ng-repeat="auth in auths">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <p>{{ park.id }}</p>
-                <p>{{ park.local }}</p>
-                <p>{{ park.piso }}</p>
-                <p>{{ park.carro }}</p>
-                <p>{{ park.data }}</p>
+                <form role="form" method="POST" action="{{ url('/auth/login')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <section class="login">
+                        <label>Email</label><br>
+                        <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}"><br>
+                        <label>Palavra-Passe</label><br>
+                        <input type="password" class="form-control" name="password" placeholder="Palavra-Passe">
+                    </section>
+                        <br>
+                    <section class="butoes">
+                        <input type="submit" name="login" value="Login">
+                    </section>
+                </form>
             </div>   
         </div>
     </div>
