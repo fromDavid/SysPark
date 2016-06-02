@@ -4,7 +4,7 @@ var app = angular.module("syspark", ['ngRoute']);
         $routeProvider.
             when('/', { 
                 controller: 'MainController',
-                templateUrl: 'js/views/auth.html'
+                templateUrl: 'js/views/home.html'
             }).
             when('/parks/:id', {
                 controller: 'ParkController',

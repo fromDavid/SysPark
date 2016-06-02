@@ -53,7 +53,6 @@ class ParkController extends Controller
 			$response = collect([]);
 
 			$parks = Park::all();
-
 			$parks = Park::where('user_id', $user_id)->get();
 			foreach ($parks as $park) {
 				$response->push([
