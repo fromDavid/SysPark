@@ -15,6 +15,7 @@ Route::group(array('prefix' => 'api/v1'), function() {
 	Route::resource('parks', 'ParkController');
 });
 
+
 /*Route::group(array('prefix' => 'api/v1/parks/user_id/{user_id}'), function() {
 	Route::resource('parks', 'ParkController');
 });*/
