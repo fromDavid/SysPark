@@ -42,9 +42,7 @@ class ParkController extends Controller
 			//standard response for HTTP error requests
 			$statusCode = 400; //Bad Request
 		} finally {
-			return response()->json($response, $statusCode)->header('
-				Access-Control-Allow-Origin', '*')->header('Access-
-				Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -71,9 +69,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Location not found.']);
 			$statusCode = 404; //Not Found
 		} finally {
-			return response()->json($response, $statusCode)->header('
-				Access-Control-Allow-Origin', '*')->header('Access-
-				Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -89,9 +85,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error creating Location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode)->header('
-				Access-Control-Allow-Origin', '*')->header('Access
-				-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -108,9 +102,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error updating Location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode)->header('
-				Access-Control-Allow-Origin', '*')->header('Access-
-				Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	
@@ -127,9 +119,7 @@ class ParkController extends Controller
 			$response->push(['error' => 'Error deleting location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode)->header('
-				Access-Control-Allow-Origin', '*')->header('Access-
-				Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 }

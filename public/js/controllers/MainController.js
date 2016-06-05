@@ -4,7 +4,7 @@ app.controller("MainController", ['$scope', 'broadcast',
 			$scope.parks = response;
 		});
 
-	/*$scope.delete = function(index) {
+	$scope.delete = function(index) {
         $scope.loading = true;
  
         var todo = $scope.parks[index];
@@ -15,5 +15,5 @@ app.controller("MainController", ['$scope', 'broadcast',
                     $scope.loading = false;
  
             });
-    };*/
+    };
 }]);
