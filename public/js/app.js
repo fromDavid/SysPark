@@ -18,9 +18,5 @@ var app = angular.module("syspark", ['ngRoute']);
                 controller: 'EditParkController',
                 templateUrl: 'js/views/edit.html'
             }).
-            when('/parks/destroy/:id', {
-                controller: 'DestroyParkController',
-                templateUrl: 'js/views/destroy.html'
-            }).
             otherwise({ redirectTo: '/' });
 }]);
