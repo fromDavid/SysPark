@@ -12,7 +12,7 @@
 */
 
 Route::group(array('prefix' => 'api/v1'), function() {
-	Route::resource('parks', 'ParkController');
+	Route::resource('parques', 'ParqueController');
 });
 
 

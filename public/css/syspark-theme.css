@@ -54,15 +54,15 @@ p {
 	margin-top: 15px;
 }
 
-.menusearch input{
+/*.menusearch input{
 	background-color: transparent;
-	border-color: none!important;
-	border-radius: 0px!important;
+	border-color: none;
+	border-radius: 0px;
 	font-size: 1.5em;
-	border: hidden!important;
-	box-shadow: none!important;
+	border: hidden;
+	box-shadow: none;
 	color: #fff;
-}
+}*/
 
 .btn {
     font-weight: 400;
