@@ -13,8 +13,9 @@ class CreateCarrosTable extends Migration
     public function up()
     {
         Schema::create('carros', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->increments('id_Carro');
+            $table->string('nome_Carro');
+            $table->timestamps('criado_a');
         });
     }
 
@@ -25,6 +26,6 @@ class CreateCarrosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('carros');
     }
 }

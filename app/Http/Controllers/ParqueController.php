@@ -9,10 +9,11 @@ use Illuminate\Http\Response;
 use App\Http\Requests;
 
 //models
-use App\Park;
-use App\User;
+use App\Parque;
+use App\Carro;
+use App\Proprietario;
 
-class ParkController extends Controller
+class ParqueController extends Controller
 {
 	/*public function __construct() {
         $this->middleware('auth');
@@ -27,15 +28,17 @@ class ParkController extends Controller
 			$response = collect([]);
 			
 			//get all persons from database
-			$parks = Park::all();
-			foreach($parks as $park) {
+			$parques = Parque::all();
+			foreach($parques as $parque) {
 				//add person to the collection
 				$response->push([
-					'user_id' => $park->user_id,
-					'local' => $park->local,
-					'piso' => $park->piso,
-					'carro' => $park->carro,
-					'data' => $park->data
+					'id' => $parque->id,
+					'data_Registo' => $parque->data_Registo,
+					'local' => $parque->local,
+					'piso' => $parque->piso,
+					'lugar' => $parque->lugar,
+					'id_Carro' => $parque->id_Carro,
+					'criado_a' => $parque->criado_a
 				]);
 			}
 		} catch (Exception $e) {
@@ -52,16 +55,17 @@ class ParkController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 
-			$parks = Park::all();
-			$parks = Park::where('user_id', $user_id)->get();
-			foreach ($parks as $park) {
+			$$parques = Parque::all();
+			$$parques = Parque::where('id_Carro', $id_Carro)->get();
+			foreach ($parques as $parque) {
 				$response->push([
-					'id' => $park->id,
-					'user_id' => $park->user_id,
-					'local' => $park->local,
-					'piso' => $park->piso,
-					'carro' => $park->carro,
-					'data' => $park->data
+					'id' => $parque->id,
+					'data_Registo' => $parque->data_Registo,
+					'local' => $parque->local,
+					'piso' => $parque->piso,
+					'lugar' => $parque->lugar,
+					'id_Carro' => $parque->id_Carro,
+					'criado_a' => $parque->criado_a
 				]);
 			}
 
@@ -79,7 +83,7 @@ class ParkController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$park = Park::create();
+			$parques = Parque::create();
 			$response->push(['created' => 'Location created successfully.']);
 		} catch (Exception $e) {
 			$response->push(['error' => 'Error creating Location.']);
@@ -95,8 +99,8 @@ class ParkController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$park = Park::findOrFail($id);
-			$park->fill($request->all())->save();
+			$parques = Parque::findOrFail($id);
+			$parques->fill($request->all())->save();
 			$response->push(['updated' => 'Location updated successfully.']);
 		} catch (Exception $e) {
 			$response->push(['error' => 'Error updating Location.']);
@@ -112,8 +116,8 @@ class ParkController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$park = Park::findOrFail($id);
-			$park->delete();
+			$parques = Parque::findOrFail($id);
+			$parques->delete();
 			$response->push(['success' => 'Location deleted successfully.']);
 		} catch (Exception $e) {
 			$response->push(['error' => 'Error deleting location.']);

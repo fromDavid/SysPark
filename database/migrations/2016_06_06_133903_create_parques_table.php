@@ -19,8 +19,8 @@ class CreateParquesTable extends Migration
             $table->string('piso');
             $table->string('lugar');
             $table->integer('id_Carro')->unsigned();
-            $table->foreign('id_Carro')->references('id_Carro')->on('proprietarios')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
+            $table->foreign('id_Carro')->references('id_Carro')->on('carros')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps('criado_a');
         });
     }
 

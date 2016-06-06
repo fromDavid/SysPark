@@ -25,6 +25,6 @@ class User extends Authenticatable
     ];
 
     public function park() {
-        return $this->hasMany('App\Park');
+        return $this->belongsToMany('App\Carro');
     }
 }

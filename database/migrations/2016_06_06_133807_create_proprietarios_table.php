@@ -16,7 +16,7 @@ class CreateProprietariosTable extends Migration
             $table->integer('id_User')->unsigned();
             $table->foreign('id_User')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_Carro')->unsigned();
-            $table->foreign('id_Carro')->references('id')->on('carros')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_Carro')->references('id_Carro')->on('carros')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateProprietariosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('proprietarios');
     }
 }
