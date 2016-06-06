@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Parque;
 use App\Carro;
 use App\Proprietario;
+use App\User;
 
 class ParqueController extends Controller
 {
@@ -23,7 +24,6 @@ class ParqueController extends Controller
 		try {
 			//standard response for successful HTTP requests
 			$statusCode = 200; //Ok
-			
 			//reset data collection
 			$response = collect([]);
 			
@@ -55,8 +55,8 @@ class ParqueController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 
-			$$parques = Parque::all();
-			$$parques = Parque::where('id_Carro', $id_Carro)->get();
+			$parques = Parque::all();
+			$parques = Parque::where('id_Carro', $id_Carro)->get();
 			foreach ($parques as $parque) {
 				$response->push([
 					'id' => $parque->id,
