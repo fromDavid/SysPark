@@ -13,17 +13,12 @@ use App\Parque;
 use App\Carro;
 use App\Proprietario;
 use App\User;
-use Response;
-use Input;
 
 class ParqueController extends Controller
 {
-	public function __construct() {
-       // Apply the jwt.auth middleware to all methods in this controller
-       // except for the authenticate method. We don't want to prevent
-       // the user from retrieving their token if they don't already have it
-       $this->middleware('jwt.auth', ['except' => ['authenticate']]);
-   	}
+	/*public function __construct() {
+        $this->middleware('auth');
+    }*/
     //construtor
 	public function index() {
 		try {

@@ -254,6 +254,7 @@ class ComposerStaticInitef6cc238869a388b3b6fb76eb0b7f726
 
     public static $classMap = array (
         'CreateCarrosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_06_133720_create_carros_table.php',
+        'CreateParksTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_104344_create_parks_table.php',
         'CreateParquesTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_06_133903_create_parques_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProprietariosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_06_133807_create_proprietarios_table.php',

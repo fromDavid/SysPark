@@ -11,14 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'cors', 'prefix' => 'api'], function()
-{
-    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
-    Route::post('authenticate', 'AuthenticateController@authenticate');
-    Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
-});
-
-Route::group(array(['middleware' => 'cors', 'prefix' => 'api/v1'], function() {
+Route::group(array('prefix' => 'api/v1'), function() {
 	Route::resource('parques', 'ParqueController');
 });
 
