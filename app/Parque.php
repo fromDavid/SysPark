@@ -13,6 +13,6 @@ class Parque extends Model
 	public $timestamps = true;
 
 	public function user(){
-		return $this->hasMany('App\Parque');
+		return $this->hasMany('App\Carro');
 	}
 }
