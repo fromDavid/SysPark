@@ -1,0 +1,23 @@
+<div id="result" ng-repeat="carro in carros">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <p><span class="weight">Carro (ID): </span>{{ carro.id_Carro }}</p>
+                <p><span class="weight">Nome: </span>{{ carro.nome_Carro }}</p>
+                <p><span class="weight">Data: </span>{{ carro.created_at | date:'medium'}}</p>
+                <a ng-click="delete(carro.id_Carro)"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>  
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control has-error" id="nome_Carro" name="nome_Carro" placeholder="Nome" ng-model="dados.nome_Carro" ng-required="true"></br>
+            <a ng-click="createCarro()"><input type="submit" value="Inserir" class="btn btn-success"></a>
+        </div>
+        <div class="col-xs-3"></div>
+    </div>
+</div>

@@ -10,13 +10,9 @@ var app = angular.module("syspark", ['ngRoute']);
                 controller: 'ParqueController',
                 templateUrl: 'js/views/parque.html'
             }).
-            when('/parques/create', {
-                controller: 'ParqueController',
-                templateUrl: 'js/views/create.html'
-            }).
-            when('/parques/edit/:id', {
-                controller: 'ParqueController',
-                templateUrl: 'js/views/edit.html'
+            when('/carros/:id', {
+                controller: 'CarroController',
+                templateUrl: 'js/views/carro.html'
             }).
             otherwise({ redirectTo: '/' });
 }]);

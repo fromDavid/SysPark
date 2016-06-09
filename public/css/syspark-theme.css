@@ -22,12 +22,17 @@ p {
 	color: #FFF;
 }
 
+#adicionar_button{
+    color: white;
+    margin-top: 4px;
+}
+
 .searchresult{
 	padding: 10px;
 }
 
 .searchresult i{
-	color: #FF0101;
+	color: #4a3bff;
 }
 
 .searchresult img{
@@ -41,8 +46,8 @@ p {
 
 #search{
 	width: 100%;
-	height: 60px;
-	background-color: #ED6F70;
+	height: 65px;
+	background-color: #4267ff;
 	margin-bottom: 15px;
 }
 
@@ -84,6 +89,7 @@ p {
 
 #wrapper {
 	position: absolute;
+    top: 65px;
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -103,7 +109,7 @@ p {
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #5A5A5A;
+    background: #333333;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -144,7 +150,8 @@ p {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #ffffff;
+    transition: all .5s ease;
 }
 
 .sidebar-nav li a:hover {
@@ -165,12 +172,18 @@ p {
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #4267ff;
+    font-size: 1.5em;
+    transition: all .5s ease;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
+    color: #0a3aff;
     background: none;
+}
+
+.weight {
+    font-weight: 300;
 }
 
 @media(min-width:768px) {

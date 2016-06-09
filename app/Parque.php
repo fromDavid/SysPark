@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parque extends Model
 {
-    protected $table = "parque";
+    protected $table = "parques";
 	protected $primaryKey = "id";
-	protected $fillable = ['data_Registo', 'local', 'piso', 'lugar', 'id_Carro'];
+	protected $fillable = ['local', 'piso', 'lugar', 'id_Carro', 'created_at'];
 	
 	public $timestamps = true;
 

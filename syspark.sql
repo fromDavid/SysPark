@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Jun-2016 às 13:15
+-- Generation Time: 08-Jun-2016 às 12:25
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `syspark`
 --
+CREATE DATABASE IF NOT EXISTS `syspark` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `syspark`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `carros`
+--
+
+CREATE TABLE IF NOT EXISTS `carros` (
+  `id_Carro` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome_Carro` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_Carro`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -38,31 +54,28 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_10_12_000000_create_users_table', 1),
 ('2014_10_12_100000_create_password_resets_table', 1),
-('2016_05_31_104344_create_parks_table', 1);
+('2016_06_06_133720_create_carros_table', 1),
+('2016_06_06_133807_create_proprietarios_table', 1),
+('2016_06_06_133903_create_parques_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `parks`
+-- Estrutura da tabela `parques`
 --
 
-CREATE TABLE IF NOT EXISTS `parks` (
+CREATE TABLE IF NOT EXISTS `parques` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `data_Registo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `local` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `piso` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `carro` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `data` date NOT NULL,
-  `criado_a` timestamp NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  KEY `parks_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `parks`
---
-
-INSERT INTO `parks` (`local`, `piso`, `carro`, `data`, `criado_a`, `user_id`) VALUES
-('dsa', 'das', 'dsa', '2016-06-16', '2016-06-01 11:03:08', 1),
-('Perdido', '2', 'Aquele', '2016-06-23', '2016-06-01 11:13:34', 2);
+  `lugar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_Carro` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `parques_id_carro_foreign` (`id_Carro`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -81,6 +94,19 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `proprietarios`
+--
+
+CREATE TABLE IF NOT EXISTS `proprietarios` (
+  `id_User` int(10) unsigned NOT NULL,
+  `id_Carro` int(10) unsigned NOT NULL,
+  KEY `proprietarios_id_user_foreign` (`id_User`),
+  KEY `proprietarios_id_carro_foreign` (`id_Carro`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `users`
 --
 
@@ -94,25 +120,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Extraindo dados da tabela `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Manel', 'manel@email.com', '123', NULL, NULL, NULL),
-(2, 'Alberto', 'alberto@gmail.com', '1234', NULL, NULL, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `parks`
+-- Limitadores para a tabela `parques`
 --
-ALTER TABLE `parks`
-  ADD CONSTRAINT `parks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE `parques`
+  ADD CONSTRAINT `parques_id_carro_foreign` FOREIGN KEY (`id_Carro`) REFERENCES `carros` (`id_Carro`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `proprietarios`
+--
+ALTER TABLE `proprietarios`
+  ADD CONSTRAINT `proprietarios_id_carro_foreign` FOREIGN KEY (`id_Carro`) REFERENCES `carros` (`id_Carro`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `proprietarios_id_user_foreign` FOREIGN KEY (`id_User`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

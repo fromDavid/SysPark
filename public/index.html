@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-	<meta charset="utf-8">
-    <meta name="description" content="Pesquisa de Amigos">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="David Coelho & Diogo Dias">
-    <title>SysPark - Where is my car?</title>
+    <head>
+    	<meta charset="utf-8">
+        <meta name="description" content="Pesquisa de Amigos">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="David Coelho & Diogo Dias">
+        <title>SysPark - Where is my car?</title>
 
-	<!-- Custom CSS -->
-	<link href='css/syspark-theme.css' rel='stylesheet'>
-	<!-- Bootstrap Core CSS -->
-	<link href='css/bootstrap.min.css' rel='stylesheet'>
-	<!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <!-- AngularJS -->
-	<script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-</head>
+    	<!-- Custom CSS -->
+    	<link href='css/syspark-theme.css' rel='stylesheet'>
+    	<!-- Bootstrap Core CSS -->
+    	<link href='css/bootstrap.min.css' rel='stylesheet'>
+    	<!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <!-- AngularJS -->
+    	<script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+    </head>
 
 	<body ng-app="syspark" ng-controller="MainController">
 		
@@ -30,38 +30,42 @@
 						</div>
 					</div>
 					<div class="menusearch">
-						<div class="col-xs-8 col-lg-8">
+						<div class="col-xs-10 col-lg-10">
 						    <input type="text" id="text" class="form-control" placeholder="Pesquisar..." ng-model="valor">
 						</div>
-						<div class="col-xs-2">
-							<a href="" data-toggle="modal" data-target="#adicionar"><i class="fa fa-plus fa-2x"></i></a>
+						<!--<div class="col-xs-2">
+							<a href="" data-toggle="modal" data-target="#adicionar"><i id="adicionar_button" class="fa fa-plus fa-2x"></i></a>
 						</div>
 						<div class="modal fade" id="adicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="control-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">Adicionar Registo</h4>
+                                    </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Utilizador:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Carro:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">Parque:</label>
+                                            <textarea class="form-control" id="message-text"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Adicionar</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>-->
 					</div>
 				</div>
 			</div>
@@ -70,17 +74,12 @@
 		<nav id="wrapper">
 			<div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand"><a href="#">SysPark</a></li>
-	                <li><a href="#">Dashboard</a></li>
-	                <li><a href="#">Shortcuts</a></li>
-	                <li><a href="#">Overview</a></li>
+	                <li class="sidebar-brand"><a href="#/index.html">SysPark</a></li>
+                    <li><a href="#/parques/+id">Inserir Parque</a></li>
+                    <li><a href="#/carros/+id">Adicionar Carro</a></li>
 	            </ul>
 	        </div>
         </nav>
-
-        <!--<div id="result" ng-repeat="pessoa in pessoas | filter: {'nome': valor}">
-        	<friend-list pessoa="pessoa"></friend-list>
-		</div>-->
         
         <div ng-view></div>
      
@@ -98,6 +97,8 @@
     <script src="js/services/broadcast.js"></script>
     <!-- importação do Park Controller -->
     <script src="js/controllers/ParqueController.js"></script>
+        <!-- importação do Carro Controller -->
+    <script src="js/controllers/CarroController.js"></script>
     <!-- importação do Main Controller -->
     <script src="js/controllers/MainController.js"></script>
 
