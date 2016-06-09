@@ -48,5 +48,13 @@ app.factory("broadcast", ['$http', function($http) {
                   return response.data;
               });
           },
+          saveCarro: function(dados) {
+              return $http({method: 'POST', url: 'http://localhost/SysPark/public/api/v1/parques', data: {info: dados}}).then(
+              function sucessCallback(response) {
+                  return response.data;
+              }, function errorCallback(response) {
+                  return response.data;
+              });
+          }
     }
 }]);

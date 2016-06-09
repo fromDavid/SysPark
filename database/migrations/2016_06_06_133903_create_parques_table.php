@@ -14,13 +14,12 @@ class CreateParquesTable extends Migration
     {
         Schema::create('parques', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('data_Registo');
             $table->string('local');
             $table->string('piso');
             $table->string('lugar');
             $table->integer('id_Carro')->unsigned();
             $table->foreign('id_Carro')->references('id_Carro')->on('carros')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps('criado_a');
+            $table->timestamps();
         });
     }
 

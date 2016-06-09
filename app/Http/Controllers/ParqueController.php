@@ -29,6 +29,7 @@ class ParqueController extends Controller
 			
 			//get all persons from database
 			$parques = Parque::all();
+			$carros = Carro::all();
 			foreach($parques as $parque) {
 				//add person to the collection
 				$response->push([

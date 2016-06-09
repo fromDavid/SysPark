@@ -15,7 +15,7 @@ class CreateCarrosTable extends Migration
         Schema::create('carros', function (Blueprint $table) {
             $table->increments('id_Carro');
             $table->string('nome_Carro');
-            $table->timestamps('criado_a');
+            $table->timestamps();
         });
     }
 
