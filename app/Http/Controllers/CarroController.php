@@ -52,6 +52,7 @@ class CarroController extends Controller
 			$response = collect([]);
 
 			$carros = Carro::all();
+			$carros = Carro::where('id_Carro', $id_Carro)->get();
 			foreach ($carros as $carro) {
 				$response->push([
 					'id_Carro' => $carro->id_Carro,
