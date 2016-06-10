@@ -1,5 +1,4 @@
 var app = angular.module("syspark", ['ngRoute']);
-    
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', { 
@@ -10,7 +9,7 @@ var app = angular.module("syspark", ['ngRoute']);
                 controller: 'ParqueController',
                 templateUrl: 'js/views/parque.html'
             }).
-            when('/carros/:id', {
+            when('/carros/:id_Carro', {
                 controller: 'CarroController',
                 templateUrl: 'js/views/carro.html'
             }).
