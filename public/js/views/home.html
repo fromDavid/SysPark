@@ -13,14 +13,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="parque in parques">
+                      <a><tr ng-repeat="parque in parques">
                         <td>{{ parque.local }}</td>
                         <td>{{ parque.piso }}</td>
                         <td>{{ parque.lugar }}</td>
                         <td>{{ parque.id_Carro }}</td>
-                        <td>{{ parque.created_at | date:'medium'}}</td>
+                        <td><!--{{ parque.created_at * 1 | date:'medium' }}--></td>
                         <td><a ng-click="delete(parque.id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                      </tr>
+                      </tr></a>
                     </tbody>
                   </table>
             </div>
