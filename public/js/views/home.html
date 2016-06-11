@@ -1,13 +1,28 @@
-<div id="result" ng-repeat="parque in parques | filter:{'local':valor} track by $index">
+<div id="result">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-6">
-                <p><span class="weight">Parque (ID): </span>{{ parque.id }}</p>
-                <p><span class="weight">Local: </span>{{ parque.local }}</p>
-                <p><span class="weight">Piso: </span>{{ parque.piso }}</p>
-                <p><span class="weight">Carro (ID): </span>{{ parque.id_Carro }}</p>
-                <p><span class="weight">Data: </span>{{ parque.created_at | date:'medium'}}</p>
-                <a ng-click="delete(parque.id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <div class="col-xs-6 col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Local</th>
+                        <th>Piso</th>
+                        <th>Lugar</th>
+                        <th>Carro</th>
+                        <th>Data</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="parque in parques">
+                        <td>{{ parque.local }}</td>
+                        <td>{{ parque.piso }}</td>
+                        <td>{{ parque.lugar }}</td>
+                        <td>{{ parque.id_Carro }}</td>
+                        <td>{{ parque.created_at | date:'medium'}}</td>
+                        <td><a ng-click="delete(parque.id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>

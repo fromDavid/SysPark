@@ -4,7 +4,7 @@ app.controller("MainController", ['$scope', 'broadcast',
             $scope.parques = response;
 		}),
 
-		$scope.save = function(index) {
+		/*$scope.save = function(index) {
             broadcast.saveParque(index).then(function(response) {
                 $scope.parques = response;
             })
@@ -14,5 +14,17 @@ app.controller("MainController", ['$scope', 'broadcast',
             broadcast.deleteParque(index).then(function(response) {
                 $scope.parques = response;
             })
+        },*/
+
+        function($scope, broadcast, $routeParams) {
+            broadcast.getCarro().then(function(response) {
+                $scope.carros = response;
+            }),
+
+            $scope.createCarro = function() {
+                broadcast.saveCarro($scope.dados).then(function(response) {
+                    $scope.resposta = response;
+                })
+            }
         }
 }]);
