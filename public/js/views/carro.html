@@ -1,11 +1,24 @@
-<div id="result" ng-repeat="carro in carros">
+<div id="result">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-6">
-                <p><span class="weight">Carro (ID): </span>{{ carro.id_Carro }}</p>
-                <p><span class="weight">Nome: </span>{{ carro.nome_Carro }}</p>
-                <p><span class="weight">Data: </span>{{ carro.created_at | date:'medium'}}</p>
-                <a ng-click="delete(carro.id_Carro)"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <div class="col-xs-12 col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Número</th>
+                        <th>Nome</th>
+                        <th>Data</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <a><tr ng-repeat="carro in carros">
+                        <td>{{ carro.id_Carro }}</td>
+                        <td>{{ carro.nome_Carro }}</td>
+                        <td><!--{{ carro.created_at * 1 | date:'medium' }}--></td>
+                        <td><a ng-click="delete(carro.id_Carro)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                      </tr></a>
+                    </tbody>
+                </table>
             </div>  
         </div>
     </div>
@@ -15,7 +28,7 @@
     <div class="row">
         <div class="col-xs-3"></div>
         <div class="col-xs-6">
-            <input type="text" class="form-control has-error" id="nome_Carro" name="nome_Carro" placeholder="Nome" ng-model="dados.nome_Carro" ng-required="true"></br>
+            <input type="text" class="form-control has-error" id="nome_Carro" name="nome_Carro" placeholder="Nome" ng-model="carros.nome_Carro" ng-required="true"></br>
             <input type="submit" value="Inserir" class="btn btn-success" ng-click="createCarro()">
         </div>
         <div class="col-xs-3"></div>
