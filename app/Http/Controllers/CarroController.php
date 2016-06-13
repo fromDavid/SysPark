@@ -77,15 +77,14 @@ class CarroController extends Controller
 			
 			Carro::create(array(
 				'nome_Carro' => $request->input('valor.nome_Carro'),
-				'created_at' => $request->input('valor.created_at'),
-				'updated_at' => $request->input('valor.updated_at')
 			));
+			
 			$response->push(['created' => 'Location created successfully.']);
 		} catch (Exception $e) {
 			$response->push(['error' => 'Error creating Location.']);
 			$statusCode = 404;
 		} finally {
-			return response()->json($response, $statusCode);
+			return response()->json($response, $statusCode)->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
 		}
 	}
 	

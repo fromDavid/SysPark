@@ -14,10 +14,5 @@ app.controller("MainController", ['$scope', 'broadcast',
             broadcast.deleteParque(index).then(function(response) {
                 $scope.parques = response;
             })
-        },
-        $scope.createCarro = function() {
-                broadcast.saveCarro($scope.dados).then(function(response) {
-                $scope.resposta = response;
-            })
         }
 }]);
