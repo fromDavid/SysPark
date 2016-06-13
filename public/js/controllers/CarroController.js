@@ -5,9 +5,9 @@ app.controller("CarroController", ['$scope', 'broadcast', '$routeParams',
     }),
         
     $scope.createCarro = function() {
-    	broadcast.saveCarro($scope.carros).then(function(response) {
+    	broadcast.saveCarro($scope.dados).then(function(response) {
     		console.log(response);
-    		//$scope.carros = response;
+    		$scope.dados = response;
     	});
     }
 }]);
