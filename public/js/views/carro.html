@@ -11,12 +11,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <a><tr ng-repeat="carro in carros">
+                    <tr ng-repeat="carro in carros track by $index">
                         <td>{{ carro.id_Carro }}</td>
                         <td>{{ carro.nome_Carro }}</td>
-                        <td><!--{{ carro.created_at * 1 | date:'medium' }}--></td>
+                        <td>{{ carro.created_at | date:'medium' }}</td>
                         <td><a ng-click="delete(carro.id_Carro)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                      </tr></a>
+                      </tr ng-repeat-end>
                     </tbody>
                 </table>
             </div>  
@@ -28,8 +28,12 @@
     <div class="row">
         <div class="col-xs-3"></div>
         <div class="col-xs-6">
-            <input type="text" class="form-control has-error" id="nome_Carro" name="nome_Carro" placeholder="Nome" ng-model="carros.nome_Carro" ng-required="true"></br>
-            <input type="submit" value="Inserir" class="btn btn-success" ng-click="createCarro()">
+            <form ng-submit="createCarro()">
+                <input type="text" class="form-control has-error" id="nome" name="nome" placeholder="Nome" ng-model="carros.nome_Carro" ng-required="true"></br>
+                 <input type="text" value="2016-02-02" class="form-control has-error" name="created_at" id="created_at" ng-model="carros.created_at" ng-required="false">
+                  <input type="text" value="2016-02-02" class="form-control has-error" name="updated_at" id="updated_at" ng-model="carros.updated_at" ng-required="false">
+                <input type="submit" class="btn btn-success">
+            </form>
         </div>
         <div class="col-xs-3"></div>
     </div>

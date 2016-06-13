@@ -18,8 +18,9 @@
                         <td>{{ parque.piso }}</td>
                         <td>{{ parque.lugar }}</td>
                         <td>{{ parque.id_Carro }}</td>
-                        <td><!--{{ parque.created_at * 1 | date:'medium' }}--></td>
-                        <td><a ng-click="delete(parque.id)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                        <td>{{ parque.created_at | date:'medium' }}</td>
+                        <td><a ng-click="edit(parque.id)"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td>
+                        <td><a ng-click="delete(parque.id)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a></td>
                       </tr></a>
                     </tbody>
                   </table>

@@ -49,8 +49,10 @@ app.factory("broadcast", ['$http', function($http) {
               });
           },
             saveCarro: function(carros) {
-              return $http({method: 'POST', url: 'http://localhost/SysPark/public/api/v1/carros', data: {info: carros}}).then(
+              console.log(carros);
+              return $http({method: 'POST', url: 'http://localhost/SysPark/public/api/v1/carros', data: { valor: carros }}).then(
               function sucessCallback(response) {
+                console.log('-->'+response);
                   return response.data;
               }, function errorCallback(response) {
                   return response.data;

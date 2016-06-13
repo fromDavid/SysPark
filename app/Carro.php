@@ -12,7 +12,7 @@ class Carro extends Model
 	
 	public $timestamps = true;
 
-	public function user(){
+	/*public function user(){
 		return $this->belongsTo('App\Parque');
-	}
+	}*/
 }
