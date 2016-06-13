@@ -75,8 +75,10 @@ class CarroController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$carros = $request->all();
-			Carro::create($carros);
+			$carros = Carro::all();
+			$carros = Carro::create(array(
+				'nome_Carro' => Input::get('nome_Carro')
+			));
 			//$carros = Carro::create(Request::all());
 			$response->push(['created' => 'Location created successfully.']);
 		} catch (Exception $e) {
