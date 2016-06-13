@@ -10,4 +10,9 @@ app.controller("CarroController", ['$scope', 'broadcast', '$routeParams',
     		$scope.dados = response;
     	});
     }
+    $scope.delete = function(index) {
+            broadcast.deleteCarro(index).then(function(response) {
+                $scope.carros = response;
+            })
+    }
 }]);

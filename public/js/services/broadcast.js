@@ -57,6 +57,14 @@ app.factory("broadcast", ['$http', function($http) {
               }, function errorCallback(response) {
                   return response.data;
               });
+          },
+            deleteCarro: function(id) {
+              return $http({method: 'DELETE', url: 'http://localhost/SysPark/public/api/v1/carros/'+id}).then(
+              function sucessCallback(response) {
+                  return response.data;
+              }, function errorCallback(response) {
+                  return response.data;
+              });
           }
     }
 }]);
