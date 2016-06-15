@@ -5,8 +5,8 @@ var app = angular.module("syspark", ['ngRoute']);
                 controller: 'MainController',
                 templateUrl: 'js/views/home.html'
             }).
-            when('/parques/:id', {
-                controller: 'ParqueController',
+            when('/parques', {
+                controller: 'CarroController',
                 templateUrl: 'js/views/inserir.html'
             }).
             when('/carros', {

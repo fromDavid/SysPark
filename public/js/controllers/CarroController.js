@@ -9,10 +9,18 @@ app.controller("CarroController", ['$scope', 'broadcast', '$routeParams',
     		console.log(response);
     		$scope.dados = response;
     	});
-    }
+    },
+
+    $scope.createParque = function() {
+        console.log($scope.dados);
+        broadcast.saveParque($scope.dados).then(function(response) {
+            $scope.dados = response;
+        });
+    },
+
     $scope.delete = function(index) {
-            broadcast.deleteCarro(index).then(function(response) {
-                $scope.carros = response;
-            })
+        broadcast.deleteCarro(index).then(function(response) {
+            $scope.carros = response;
+        })
     }
 }]);
