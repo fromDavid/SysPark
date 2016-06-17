@@ -3,6 +3,12 @@ body {
     height: 100%;
     font-family: 'Open Sans', sans-serif;
     color: #000;
+    background-image: url("../media/bg.jpg");
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     background-color: #AD2E2E;
 }
 
@@ -14,7 +20,11 @@ html {
 p {
     letter-spacing: 1px;
     font-size: 1.2em;
-    color: #848889;
+    color: #FFF;
+}
+
+tr {
+    color: #FFF;
 }
 
 .lupa{
