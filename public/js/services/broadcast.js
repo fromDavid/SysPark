@@ -16,16 +16,16 @@ app.factory("broadcast", ['$http', function($http) {
                   return response.data;
               });
           },
-            deleteParque: function(id) {
-              return $http({method: 'DELETE', url: 'http://localhost/SysPark/public/api/v1/parques/'+id}).then(
+            saveParque: function(dados) {
+              return $http({method: 'POST', url: 'http://localhost/SysPark/public/api/v1/parques', data: { valor: dados }}).then(
               function sucessCallback(response) {
                   return response.data;
               }, function errorCallback(response) {
                   return response.data;
               });
           },
-            saveParque: function(dados) {
-              return $http({method: 'POST', url: 'http://localhost/SysPark/public/api/v1/parques', data: {info: dados}}).then(
+            deleteParque: function(id) {
+              return $http({method: 'DELETE', url: 'http://localhost/SysPark/public/api/v1/parques/'+id}).then(
               function sucessCallback(response) {
                   return response.data;
               }, function errorCallback(response) {

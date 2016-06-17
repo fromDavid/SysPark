@@ -1,0 +1,21 @@
+<div id="result" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <!--<input type="text" class="form-control has-error" id="id_Carro" name="local" placeholder="ID Carro" ng-model="dados.id_Carro" ng-required="true">-->
+            <form class="form-group" ng-submit="createParque()">
+                <label for="sel1">Carro:</label>
+                <select id="id_Carro" name="id_Carro" ng-model="dados.id_Carro" class="form-control">
+                   <option value="">Escolha um carro</option> 
+                   <option ng-repeat="carro in carros" ng-value="carro.id_Carro" ng-required="true">{{ carro.nome_Carro }}</option>
+                </select>
+                <br>
+                <input type="text" class="form-control has-error" id="local" name="local" placeholder="Local" ng-model="dados.local" ng-required="true"></br>
+                <input type="text" class="form-control has-error" id="piso" name="piso" placeholder="Piso" ng-model="dados.piso" ng-required="true"></br>
+                <input type="text" class="form-control has-error" id="lugar" name="lugar" placeholder="Lugar" ng-model="dados.lugar" ng-required="true"></br>
+                <input type="submit" class="btn btn-success">
+            </form>
+        </div>
+        <div class="col-xs-3"></div>
+    </div>
+</div>

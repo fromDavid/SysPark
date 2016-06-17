@@ -81,8 +81,14 @@ class ParqueController extends Controller
 		try {
 			$statusCode = 200;
 			$response = collect([]);
+
+			Parque::create(array(
+				'id_Carro' => $request->input('valor.id_Carro'),
+				'local' => $request->input('valor.local'),
+				'piso' => $request->input('valor.piso'),
+				'lugar' => $request->input('valor.lugar'),
+			));
 			
-			$parques = Parque::create(Request::all());
 			$response->push(['created' => 'Location created successfully.']);
 		} catch (Exception $e) {
 			$response->push(['error' => 'Error creating Location.']);
