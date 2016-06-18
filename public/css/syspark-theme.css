@@ -27,6 +27,30 @@ tr {
     color: #FFF;
 }
 
+.eye{
+    color: #364663!important;
+}
+
+input[type="text"]{
+    background-color: rgba(0, 0, 0, 0.66)!important;
+    color: #FFF!important;
+    opacity: 0.76;
+    border-color: transparent!important;
+    border-radius: 0px!important;
+}
+
+form select, option{
+    background-color: rgba(0, 0, 0, 0.66)!important;
+    color: #FFF!important;
+    border-color: transparent!important;
+    border-radius: 0px!important;
+    opacity: 0.76!important;
+}
+
+.combobox{
+    margin-bottom: 15px;
+}
+
 .lupa{
 	top: 3px;
 	color: #FFF;

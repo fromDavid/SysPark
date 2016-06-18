@@ -1,5 +1,5 @@
-app.controller("CarroController", ['$scope', 'broadcast', '$routeParams', 
-	function($scope, broadcast, $routeParams) {
+app.controller("CarroController", ['$scope', 'broadcast', '$routeParams', '$route',
+	function($scope, broadcast, $routeParams, $route) {
 	    broadcast.getCarro().then(function(response) {
 	        $scope.carros = response;
     }),
@@ -8,6 +8,7 @@ app.controller("CarroController", ['$scope', 'broadcast', '$routeParams',
     	broadcast.saveCarro($scope.dados).then(function(response) {
     		console.log(response);
     		$scope.dados = response;
+            $route.reload();
     	});
     },
 
@@ -15,12 +16,14 @@ app.controller("CarroController", ['$scope', 'broadcast', '$routeParams',
         console.log($scope.dados);
         broadcast.saveParque($scope.dados).then(function(response) {
             $scope.dados = response;
+            $route.reload();
         });
     },
 
     $scope.delete = function(index) {
         broadcast.deleteCarro(index).then(function(response) {
             $scope.carros = response;
+            $route.reload();
         })
     }
 }]);

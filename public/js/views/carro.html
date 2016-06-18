@@ -14,7 +14,7 @@
                     <tr ng-repeat="carro in carros">
                         <td>{{ carro.id_Carro }}</td>
                         <td>{{ carro.nome_Carro }}</td>
-                        <td>{{ carro.created_at | date:'medium' }}</td>
+                        <td>{{ carro.created_at | date:'MM/dd/yyyy @ h:mma' }}</td>
                         <td><a ng-click="edit(carro.id_Carro)"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td>
                         <td><a ng-click="delete(carro.id_Carro)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a></td>
                       </tr>
@@ -28,9 +28,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-3"></div>
-        <div class="col-xs-6">
-                <input type="text" class="form-control has-error" id="nome" name="nome" placeholder="Nome" ng-model="dados.nome_Carro" ng-required="true"></br>
-                <input type="submit" class="btn btn-success" ng-click="createCarro()">
+        <div class="col-xs-12">
+            <form class="form-inline" ng-click="createCarro()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></div>
+                        <input type="text" class="form-control has-error" id="nome" name="nome" placeholder="Nome" ng-model="dados.nome_Carro" ng-required="true"></br>
+                    </div>
+                    <br>
+                        <button type="submit" class="btn btn-success">Adicionar</button>
+                </div>
+            </form>
         </div>
         <div class="col-xs-3"></div>
     </div>
