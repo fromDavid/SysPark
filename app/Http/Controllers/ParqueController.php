@@ -104,7 +104,13 @@ class ParqueController extends Controller
 			$statusCode = 200;
 			$response = collect([]);
 			
-			$parques = Parque::findOrFail($id);
+			$parques = Parque::findOrFail(array(
+				'id_Carro' => $request->input('valor.id_Carro'),
+				'local' => $request->input('valor.local'),
+				'piso' => $request->input('valor.piso'),
+				'lugar' => $request->input('valor.lugar'),
+			));
+			
 			$parques->fill($request->all())->save();
 			$response->push(['updated' => 'Location updated successfully.']);
 		} catch (Exception $e) {
