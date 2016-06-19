@@ -40,7 +40,7 @@ class ParqueController extends Controller
 					'id_Carro' => $parque->id_Carro,
 					'created_at' => $parque->created_at
 				]);
-			}
+			},
 
 			foreach($carros as $carro) {
 				//add person to the collection
