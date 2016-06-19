@@ -40,16 +40,8 @@ class ParqueController extends Controller
 					'id_Carro' => $parque->id_Carro,
 					'created_at' => $parque->created_at
 				]);
-			},
-
-			foreach($carros as $carro) {
-				//add person to the collection
-				$response->push([
-					'id_Carro' => $carro->id_Carro,
-					'nome_Carro' => $carro->nome_Carro,
-					'created_at' => $carro->created_at
-				]);
 			}
+			
 		} catch (Exception $e) {
 			//standard response for HTTP error requests
 			$statusCode = 400; //Bad Request
