@@ -1,5 +1,5 @@
-app.controller("MainController", ['$scope', 'broadcast', 
-	function($scope, broadcast) {
+app.controller("MainController", ['$scope', 'broadcast', '$route', 
+	function($scope, broadcast, $route) {
 		broadcast.getParque().then(function(response){
             $scope.parques = response;
 		}),
@@ -7,6 +7,9 @@ app.controller("MainController", ['$scope', 'broadcast',
         $scope.delete = function(index) {
             broadcast.deleteParque(index).then(function(response) {
                 $scope.parques = response;
-            })
+                broadcast.getParque().then(function(response){
+            		$scope.parques = response;
+				})
+            });
         }
 }]);

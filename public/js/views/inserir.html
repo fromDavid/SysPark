@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-9 col-md-offset-1">
             <!--<input type="text" class="form-control has-error" id="id_Carro" name="local" placeholder="ID Carro" ng-model="dados.id_Carro" ng-required="true">-->
-            <form class="form-inline">
+            <form class="form-inline" ng-submit="createParque()">
                 <div class="form-group">
                     <div class="input-group input-group-lg">
                         <div class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></div>
@@ -31,7 +31,7 @@
                     <input type="text" class="form-control has-error" id="lugar" name="lugar" placeholder="Lugar" ng-model="dados.lugar" ng-required="true">
                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg" ng-submit="createParque()">Adicionar</button>
+                <button type="submit" class="btn btn-primary btn-lg">Adicionar</button>
             </form>
             
         </div>
